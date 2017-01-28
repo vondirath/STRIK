@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- start head -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <meta charset="UTF-8">
+    <title>STRIK</title>
+    <!-- Stylesheets -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}" />
+    <!-- End Stylesheets -->
+</head>
+<!-- end head -->
+
+<body>
+    <!-- start body-->
+    <header>
+        <h1>STRIK</h1>
+        <span class="nav_list">
+            <ul>
+            <li><a href="#">Featured</a></li>
+            <li><a href="#">Feminine</a></li>
+            <li><a href="#">Masculine</a></li>
+            <li><a href="#">Sale</a></li>
+            </ul>
+        </span>
+        <span class="search"><input type="text" placeholder="Search by Profile or item.."></input>
+        <h3>Jworth</h3>
+        </span>
+    </header>
+
+    <nav class="body_header">
+
+        <figure>
+            <img src="static/images/PUTIMAGENAMEHEREWITHEXTENSION" alt="Guy crossing arms"></img>
+            <figcaption>Magi.cakes</figcaption>
+        </figure>
+
+        <div class="head_social">
+            <ul>
+                <li><a href="#">Follow</a></li>
+                <li><a href="#">324 Followers</a></li>
+                <li><a href="#">Following 56</a></li>
+            </ul>
+        </div>
+
+
+        <div class="filter_list">
+            <ul>
+                <li>All</li>
+                <li>Shoes</li>
+                <li>Tops</li>
+                <li>Bottoms</li>
+            </ul>
+        </div>
+    </nav>
+    <!-- end body header-->
+
+{% block content %}{% endblock %}
+
+</body>
+<!--end body -->
+
+<footer><!-- start footer -->
+</footer><!-- end footer -->
+
+<!-- start scripts -->
+<script src="{% static 'app/scripts.js' %}"
+<!-- end scripts -- >
+</html>
