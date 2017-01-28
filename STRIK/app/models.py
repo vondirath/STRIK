@@ -6,7 +6,7 @@ import datetime
 
 class Posts(models.Model):
     title = models.CharField(max_length=100)
-    description = models.CharField(max_length=300)
+    description = models.TextField()
     post_date = models.DateField('date published')
     image_name = models.CharField(max_length=50)
     sale = models.BooleanField(default=False)
@@ -14,3 +14,5 @@ class Posts(models.Model):
     price = models.CharField(max_length=4)
     temporary_price = models.CharField(max_length=4)
 
+    def __unicode__(self):
+        return self.title
