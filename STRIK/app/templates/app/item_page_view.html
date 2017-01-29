@@ -1,0 +1,21 @@
+{% extends 'app/layout.html' %}
+{% block content %}
+<!-- IF IS FEATURED = TRUE -->
+<h1>FEATURED TAG</h1>
+
+<!-- Use large image file name -->
+<img src="url to image" alt="post title" />
+
+<span class="item_price_list">
+<!-- IF SALE PRICE -->
+    <h4>On sale!</h4>
+    <p class="item_sale_price">original listing price</p>
+    <p class="item_regular_price">new listing price</p>
+<!-- ELSE NO SALE PRICE -->
+    <p class="item_regular_price">listing price</p>
+<!--endif-->
+</span>
+
+<h3>listing title</h3>
+<p>listing description</p>
+{% endblock %}
