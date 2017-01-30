@@ -7,7 +7,7 @@ import datetime
 class Posts(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    post_date = models.DateField('date published')
+    post_date = models.DateTimeField('date published')
     image_name = models.CharField(max_length=50)
     sale = models.BooleanField(default=False)
     featured = models.BooleanField(default=False)

@@ -6,6 +6,9 @@ from django.views import generic
 from django.utils import timezone
 from django.template import loader
 # END DJANGO IMPORTS
+from .models import Posts
 
 def index(request):
-    return render(request, 'app/index.html')
+    latest_post_list = Posts.objects.order_by('-post_date')[:10]
+    context = {'latest_post_list' : latest_post_list}
+    return render(request, 'app/index.html', context)
