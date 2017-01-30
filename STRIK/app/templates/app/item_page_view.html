@@ -1,21 +1,26 @@
 {% extends 'app/layout.html' %}
+{% comment %}
+This is each item view when you click on a link from index
+data is accessed by post.dataname
+{% endcomment %}
 {% block content %}
-<!-- IF IS FEATURED = TRUE -->
+{% if post.featured is True %}
 <h1>FEATURED TAG</h1>
+{% endif %}
 
 <!-- Use large image file name -->
-<img src="url to image" alt="post title" />
+<img src="url to image" alt="{{ post.title }}" />
 
 <span class="item_price_list">
-<!-- IF SALE PRICE -->
-    <h4>On sale!</h4>
-    <p class="item_sale_price">original listing price</p>
-    <p class="item_regular_price">new listing price</p>
-<!-- ELSE NO SALE PRICE -->
-    <p class="item_regular_price">listing price</p>
-<!--endif-->
+    {% if post.sale is True %}
+        <h4 class="in_post_sale_header">On sale!</h4>
+        <p class="item_original_price"> {{ post.price }} </p>
+        <p class="item_regular_price"> {{ post.temporary_price }} </p>
+    {% else %}
+        <p class="item_regular_price"> {{ post.price }} </p>
+{% endif %}
 </span>
 
-<h3>listing title</h3>
-<p>listing description</p>
+<h3> {{ post.title }} </h3>
+<p> {{ post.description }} </p>
 {% endblock %}

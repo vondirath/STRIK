@@ -1,4 +1,7 @@
 {% extends 'app/layout.html' %}
+{% comment %}
+This is the main page view or index
+{% endcomment %}
 {% block content %}
 <div class="container"><!-- this is main body container -->
 {% if latest_post_list %}
@@ -6,7 +9,9 @@
     {% for post in latest_post_list %}
     <div class="listing_item">
         <figure><!--Use small image file name-->
-            <img src="static/images/LIST_ITEM_IMG" alt="{{ post.title }}"></img>
+            <a href="{% url 'app:item_detail' post.id %}">
+                <img src="static/images/LIST_ITEM_IMG" alt="{{ post.title }}"></img>
+            </a>
             {% if post.sale is True %}
             <figcaption class="sale_price">${{ post.temporary_price }}</figcaption>
             <figcaption class="old_price">${{ post.price }}</figcaption>

@@ -5,6 +5,18 @@ import datetime
 
 
 class Posts(models.Model):
+    """
+        This is the Django database setup. 
+        data available:
+        title max_length 100
+        description
+        post_date
+        image_name
+        sale True/False
+        featured True/False
+        price
+        temporary_price or sale price
+    """
     title = models.CharField(max_length=100)
     description = models.TextField()
     post_date = models.DateTimeField('date published')
