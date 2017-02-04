@@ -7,6 +7,7 @@ from django.utils import timezone
 from django.template import loader
 # END DJANGO IMPORTS
 from .models import Posts
+from .forms import PostForm
 
 def index(request):
     """
@@ -25,3 +26,21 @@ def item_detail(request, post_id):
     post = get_object_or_404(Posts, pk=post_id)
     context = {'post': post}
     return render(request,'app/item_page_view.html', context)
+
+def new_post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data['title']
+            description = form.cleaned_data['description']
+            post_date = timezone.now()
+            image_name = form.cleaned_data['image_name']
+            sale = form.cleaned_data['sale']
+            featured = form.cleaned_data['featured']
+            price = form.cleaned_data['price']
+            temporary_price = form.cleaned_data['temporary_price']
+            return HttpResponseRedirect('app/index.html')
+    else:
+        form = PostForm()
+    
+    return render(request, 'app/new_post.html', {'form': form})
