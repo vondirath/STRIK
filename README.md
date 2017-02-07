@@ -16,7 +16,7 @@ https://gitter.im/STRIK-project/Lobby
 
 # What is the current status?
 --------------
-As the project is in its infancy its simpler to break down it by section.
+Design and templates and function changing see the latest on the gitter chat
 
 Design - 
   - Currently Working with design mockups for templates and style
@@ -30,4 +30,3 @@ Server -
   - Planned Ubuntu Server
   - Planned Apache
   - Discussion between AWS / GAE / Heroku
-

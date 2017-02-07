@@ -25,7 +25,8 @@ def item_detail(request, post_id):
     """
     post = get_object_or_404(Posts, pk=post_id)
     context = {'post': post}
-    return render(request,'app/item_page_view.html', context)
+    # return render(request,'app/item_page_view.html', context)
+    return render(request, 'app/item_page_temp.html', context)
 
 def new_post(request):
     if request.method == 'POST':
