@@ -25,10 +25,15 @@ def item_detail(request, post_id):
     """
     post = get_object_or_404(Posts, pk=post_id)
     context = {'post': post}
-    # return render(request,'app/item_page_view.html', context)
-    return render(request, 'app/item_page_temp.html', context)
+    return render(request,'app/item_page_view.html', context)
+    # shopify option
+    # return render(request, 'app/item_page_temp.html', context)
 
+#depreciated for admin
 def new_post(request):
+    """
+        This is a starter for a new post may be depreciated for admin
+    """
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():

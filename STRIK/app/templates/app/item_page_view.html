@@ -23,4 +23,13 @@ data is accessed by post.dataname
 
 <h3> {{ post.title }} </h3>
 <p> {{ post.description }} </p>
+{% if post.product_id == "0" %}
+<p> id = 0 </p>
+{% elif post.product_id == "1" %}
+<p> id = 1 </p>
+{% elif post.product_id == "2" %}
+<p> id = 2 </p>
+{% else %}
+<p> error / null / none value. default should be 0 </p>
+{% endif %}
 {% endblock %}

@@ -8,3 +8,4 @@ class PostForm(forms.Form):
     featured = forms.BooleanField(required=False)
     price = forms.CharField(label="price", max_length=4)
     temporary_price = forms.CharField(label="temporary_price", max_length=4, required=False)
+

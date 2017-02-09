@@ -6,7 +6,7 @@ import datetime
 
 class Posts(models.Model):
     """
-        This is the Django database setup. 
+        This is the Django database setup.
         data available:
         title max_length 100
         description
@@ -16,6 +16,8 @@ class Posts(models.Model):
         featured True/False
         price
         temporary_price or sale price
+        inventory
+        product_id
     """
     title = models.CharField(max_length=100)
     description = models.TextField()
@@ -25,6 +27,8 @@ class Posts(models.Model):
     featured = models.BooleanField(default=False)
     price = models.CharField(max_length=4)
     temporary_price = models.CharField(max_length=4)
+    inventory = models.IntegerField(default=0)
+    product_id = models.CharField(max_length=30)
 
     def __unicode__(self):
         return self.title
