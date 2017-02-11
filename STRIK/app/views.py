@@ -5,9 +5,11 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 from django.template import loader
+from django.core.mail import send_mail
 # END DJANGO IMPORTS
 from .models import Posts
-from .forms import PostForm
+from .forms import PostForm, ContactForm
+
 
 def index(request):
     """
@@ -17,6 +19,7 @@ def index(request):
     latest_post_list = Posts.objects.order_by('-post_date')[:10]
     context = {'latest_post_list' : latest_post_list}
     return render(request, 'app/index.html', context)
+
 
 def item_detail(request, post_id):
     """
@@ -28,6 +31,7 @@ def item_detail(request, post_id):
     return render(request,'app/item_page_view.html', context)
     # shopify option
     # return render(request, 'app/item_page_temp.html', context)
+
 
 #depreciated for admin
 def new_post(request):
@@ -50,3 +54,27 @@ def new_post(request):
         form = PostForm()
     
     return render(request, 'app/new_post.html', {'form': form})
+
+
+def contact_post(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            from_email = form.cleaned_data['Email']
+            cc_myself = form.cleaned_data['cc_myself']
+
+            recipient_list = ['vondirath@gmail.com']
+            if cc_myself:
+                recipient_list.append(from_email)
+            send_mail(subject, message, from_email, recipient_list)
+            return HttpResponseRedirect('/thanks/')
+    else:
+        form = ContactForm()
+    
+    return render(request, 'app/contact.html', {'form':form})
+
+
+def thanks_page(request):
+    return render(request, 'app/thanks.html')

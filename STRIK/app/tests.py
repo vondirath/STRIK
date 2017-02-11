@@ -4,7 +4,7 @@ from django.urls import reverse
 from .models import Posts
 # Create your tests here.
 
-class ModelPostsTest(self testCase):
+class ModelPostsTest(TestCase):
     def setUp(self):
         pass
 

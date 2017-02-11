@@ -1,5 +1,6 @@
 from django import forms
 
+
 class PostForm(forms.Form):
     title = forms.CharField(label="title", max_length=100)
     description = forms.CharField(label="description", max_length=200)
@@ -9,3 +10,12 @@ class PostForm(forms.Form):
     price = forms.CharField(label="price", max_length=4)
     temporary_price = forms.CharField(label="temporary_price", max_length=4, required=False)
 
+
+class ContactForm(forms.Form):
+    """
+        Returns the content to be rendered for the form page.
+    """
+    subject = forms.CharField(label="Your name", max_length=100)
+    message = forms.CharField(widget=forms.Textarea)
+    Email = forms.EmailField()
+    cc_myself = forms.BooleanField(required=False)
