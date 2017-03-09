@@ -8,7 +8,7 @@ from django.template import loader
 from django.core.mail import send_mail
 # END DJANGO IMPORTS
 from .models import Posts
-from .forms import PostForm, ContactForm
+from .forms import ContactForm
 
 
 def index(request):
